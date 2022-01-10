@@ -20,6 +20,12 @@ export class UserTable1641772473300 implements MigrationInterface {
           { name: "active", type: "boolean", default: true },
           { name: "birthDate", type: "date", isNullable: false },
           { name: "address", type: "varchar", isNullable: false },
+          {
+            name: "userName",
+            type: "string",
+            isNullable: false,
+          },
+          { name: "password", type: "string", isNullable: false },
           { name: "state", type: "integer", isNullable: false },
           { name: "country", type: "integer", isNullable: false },
           { name: "city", type: "integer", isNullable: false },
@@ -29,5 +35,7 @@ export class UserTable1641772473300 implements MigrationInterface {
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {}
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("users");
+  }
 }

@@ -1,7 +1,6 @@
 export type ProfileModel = {
   id: number;
-  userName: string;
-  password: string;
+  type: number;
 };
 
 export type AddProfileModel = Omit<ProfileModel, "id">;
